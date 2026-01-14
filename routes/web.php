@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/notes', [NoteController::class, 'index']);
+
+Route::get('/notes/{note}', [NoteController::class, 'show']);

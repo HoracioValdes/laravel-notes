@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ $note->title }}</title>
+</head>
+<body>
+    <h1>{{ $note->title }}</h1>
+
+    <p>{{ $note->content }}</p>
+
+    <a href="/notes">← Back to notes</a>
+</body>
+</html>
