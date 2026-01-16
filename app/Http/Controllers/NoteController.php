@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreNoteRequest;
 
 class NoteController extends Controller
 {
@@ -24,12 +25,9 @@ class NoteController extends Controller
         return view('notes.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreNoteRequest $request)
     {
-        $note = Note::create([
-            'title'   => $request->input('title'),
-            'content' => $request->input('content'),
-        ]);
+        $note = Note::create($request->validated());
 
         return redirect('/notes/' . $note->id);
     }
