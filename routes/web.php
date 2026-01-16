@@ -13,3 +13,6 @@ Route::get('/notes/create', [NoteController::class, 'create']);
 Route::post('/notes', [NoteController::class, 'store']);
 
 Route::get('/notes/{note}', [NoteController::class, 'show']);
+
+Route::get('/notes/{note}/edit', [NoteController::class, 'edit']);
+Route::put('/notes/{note}', [NoteController::class, 'update']);

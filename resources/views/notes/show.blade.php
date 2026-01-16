@@ -8,6 +8,8 @@
 
     <p>{{ $note->content }}</p>
 
+    <a href="/notes/{{ $note->id }}/edit">Edit</a>
+
     <a href="/notes">← Back to notes</a>
 </body>
 </html>
