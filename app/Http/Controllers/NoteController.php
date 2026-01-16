@@ -11,7 +11,7 @@ class NoteController extends Controller
 {
     public function index()
     {
-        $notes = Note::all();
+        $notes = Note::published()->latest()->get();
 
         return view('notes.index', compact('notes'));
     }
@@ -28,7 +28,10 @@ class NoteController extends Controller
 
     public function store(StoreNoteRequest $request)
     {
-        $note = Note::create($request->validated());
+        $data = $request->validated();
+        $data['is_published'] = $request->boolean('is_published');
+
+        $note = Note::create($data);
 
         return redirect('/notes/' . $note->id);
     }
@@ -40,7 +43,10 @@ class NoteController extends Controller
 
     public function update(UpdateNoteRequest $request, Note $note)
     {
-        $note->update($request->validated());
+        $data = $request->validated();
+        $data['is_published'] = $request->boolean('is_published');
+
+        $note->update($data);
 
         return redirect('/notes/' . $note->id);
     }

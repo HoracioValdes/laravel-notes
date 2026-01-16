@@ -11,4 +11,18 @@ class Note extends Model
         'content',
         'is_published',
     ];
+
+    // ─────────────────────────────
+    // Scopes de dominio
+    // ─────────────────────────────
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
+    }
+
+    public function scopeDrafts($query)
+    {
+        return $query->where('is_published', false);
+    }
 }

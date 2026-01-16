@@ -29,6 +29,14 @@
         </div>
 
         <button type="submit">Update</button>
+
+        <div>
+            <label>
+                <input type="checkbox" name="is_published" value="1"
+                    {{ old('is_published', $note->is_published) ? 'checked' : '' }}>
+                Published
+            </label>
+        </div>
     </form>
 
     <a href="/notes/{{ $note->id }}">← Back</a>

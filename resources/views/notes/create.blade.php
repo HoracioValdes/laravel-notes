@@ -28,6 +28,13 @@
         </div>
 
         <button type="submit">Save</button>
+
+        <div>
+            <label>
+                <input type="checkbox" name="is_published" value="1">
+                Published
+            </label>
+        </div>
     </form>
 
     <a href="/notes">← Back</a>
